@@ -131,7 +131,7 @@ echo "</td></tr></table>";
 							}
 						}
 					}
-					echo "<td style='background-color:" . $color . ";'>" . $str . "</td>";
+					echo "<td style='background-color:" . $color . ";' id=time>" . $str . "</td>";
 				}
 				$min++;
 				if ($min >= 60) {
