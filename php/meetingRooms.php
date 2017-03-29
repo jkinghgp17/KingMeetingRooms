@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/table.css">
+
 <?php
 /*
  * Jake King April 2017
@@ -138,19 +140,19 @@ echo "</td></tr></table>";
 						}
 					}
 					
-					$color = '#FF000000';
+					$class ="default"
 					$str = "";
 					foreach ($rows as $r) {
 						if ($rooms[$col] == $r['room']) {
 							if ($time >= $r['starttime'] && $time <= $r['endtime'])
-								$color = 'Red';
+								$class="timetaken"
 							// A form is added to the start of every time group to allow for editing
 							if ($time == $r['starttime']) {
 								$str = $r['teacher'] . " " . $r['number'] . " " . "<br/><form action=meetingRooms.php method=POST><input type=hidden name=room value=" . $rooms[$col] . "><input type=hidden name=date value=" . $date . "><input type=hidden name=time value=" . $time . "><input type=number name=number min=0 max=999><input type=submit></form>";
 							}
 						}
 					}
-					echo "<td style='background-color:" . $color . ";' id=time>" . $str . "</td>";
+					echo "<td ' id=time class=" . $class . ">" . $str . "</td>";
 				}
 				$min++;
 				if ($min >= 60) {

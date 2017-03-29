@@ -1,1 +1,7 @@
-w
+. timetaken {
+	background-color: RED;
+}
+
+. timeHighlighted {
+	background-color: PINK;
+}
