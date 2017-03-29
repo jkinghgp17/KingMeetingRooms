@@ -71,7 +71,7 @@ echo "</td></tr></table>";
 	<input type="submit" value="Submit">
 </form>
 
-/* This form allows user to change the current date being shown in the table */
+<!-- This form allows user to change the current date being shown in the table -->
 <form action="meetingRooms.php" method="GET" align='center'>
 <input name="dateUpdate" type="date" value=<?php $date ?>>
 <br/><input type="submit" value="Change Date">
