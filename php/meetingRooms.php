@@ -80,7 +80,7 @@ echo "</td></tr></table>";
 </form>
 
 <div style='overflow:scroll; height:400px;'>
-<table class='centered' height='0' border='0' padding='0'>
+<table class='centered' height='0' border='0' padding='0' onmousedown="selectStart(event)" onmouseup="selectEnd(event)">
 		<tr>
 			<?php 
 	echo "<th>Times</th>";
@@ -140,12 +140,12 @@ echo "</td></tr></table>";
 						}
 					}
 					
-					$class ="default"
+					$class ="default";
 					$str = "";
 					foreach ($rows as $r) {
 						if ($rooms[$col] == $r['room']) {
 							if ($time >= $r['starttime'] && $time <= $r['endtime'])
-								$class="timetaken"
+								$class="timetaken";
 							// A form is added to the start of every time group to allow for editing
 							if ($time == $r['starttime']) {
 								$str = $r['teacher'] . " " . $r['number'] . " " . "<br/><form action=meetingRooms.php method=POST><input type=hidden name=room value=" . $rooms[$col] . "><input type=hidden name=date value=" . $date . "><input type=hidden name=time value=" . $time . "><input type=number name=number min=0 max=999><input type=submit></form>";
