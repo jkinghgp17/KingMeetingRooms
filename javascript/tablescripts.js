@@ -7,11 +7,11 @@ var start;
 var end;
 
 function selectStart(event) {
-	start = event.target.id;
+	start = event.target;
 	alert("Start time selected as " + start + ".");
 }
 
 function selectEnd(event) {
-	end = event.target.id;
+	end = event.target;
 	alert("End time selected as " + start + ".");
 }

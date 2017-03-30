@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="css/table.css">
 
 <?php
 /*
@@ -48,6 +47,10 @@ if (isset($_POST['time']) && isset($_POST['date']) && isset($_POST['room'])) {
 }
 echo "</td></tr></table>";
 ?>
+
+
+<link rel="stylesheet" type="text/css" href="css/table.css">
+<script tpye="text/javascript" src="javascript/tablesrcipts.js"></script>
 
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
 	Select Room <br/>
