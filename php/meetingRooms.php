@@ -1,4 +1,3 @@
-
 <?php
 /*
  * Jake King April 2017
@@ -50,7 +49,7 @@ echo "</td></tr></table>";
 
 
 <link rel="stylesheet" type="text/css" href="css/table.css">
-<script tpye="text/javascript" src="javascript/tablesrcipts.js"></script>
+<script type="text/javascript" src="javascript/tablescripts.js"></script>
 
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
 	Select Room <br/>
@@ -82,8 +81,8 @@ echo "</td></tr></table>";
 <br/><input type="submit" value="Change Date">
 </form>
 
-<div style='overflow:scroll; height:400px;'>
-<table class='centered' height='0' border='0' padding='0' onmousedown="selectStart(event)" onmouseup="selectEnd(event)">
+<div style='overflow:scroll; height:400px;' onclick="selectStart(event)">
+<table class='centered' height='0' border='0' padding='0'>
 		<tr>
 			<?php 
 	echo "<th>Times</th>";

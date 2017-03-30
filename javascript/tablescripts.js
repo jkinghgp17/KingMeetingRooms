@@ -5,17 +5,18 @@
 
 
 function selectStart(event) {
-	var target;
-	if (!e) {
+	/*var target;
+	if (!event) {
 		e = window.event;
 	}
-	if (e.target) {
+	if (event.target) {
 		target = e.target;
-	} else if (e.srcElement) {
-		target = e.srcElement;
+	} else if (event.srcElement) {
+		target = event.srcElement;
 	}
-	var id = targ.id;
-	alert("The target id is " + id + ".");
+	var id = target.id;
+	alert("The target id is " + id + ".");*/*/*/*/*/*/*/*/
+	alert("NULL");
 }
 
 
