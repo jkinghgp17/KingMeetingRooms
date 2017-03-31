@@ -51,6 +51,8 @@ echo "</td></tr></table>";
 <link rel="stylesheet" type="text/css" href="css/table.css">
 <script type="text/javascript" src="javascript/tablescripts.js"></script>
 
+</script>
+
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
 	Select Room <br/>
 	<select name="room">
@@ -81,7 +83,7 @@ echo "</td></tr></table>";
 <br/><input type="submit" value="Change Date">
 </form>
 
-<div style='overflow:scroll; height:400px;' onclick="selectStart(event)">
+<div style='overflow:scroll; height:400px;' onmousedown="selectStart(event)">
 <table id="TEST"  class='centered' height='0' border='0' padding='0'>
 		<tr>
 			<?php 
@@ -154,7 +156,7 @@ echo "</td></tr></table>";
 							}
 						}
 					}
-					echo "<td ' id=time class=" . $class . ">" . $str . "</td>";
+					echo "<td ' id=" . $time . " class=" . $class . ">" . $str . "</td>";
 				}
 				$min++;
 				if ($min >= 60) {
