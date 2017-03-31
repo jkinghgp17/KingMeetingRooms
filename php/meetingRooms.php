@@ -57,9 +57,9 @@ echo "</td></tr></table>";
 <form action="meetingRoomsSubmit.php" method="POST">
 	<input type="hidden" name="number" value=-1>
 	<input type="hidden" name="room" value="">
-	<input type="hidden" name="date" value="">
-	<input type="time" name="starttime" min="07:30:00" max="20:30:00" value="">
-	<input type="time" name="endtime" min="08:00:00" max="21:00:00" value="">
+	<input type="hidden" name="date" value=<?php $date ?>>
+	<input type="hidden" name="starttime" min="07:30:00" max="20:30:00" value="">
+	<input type="hidden" name="endtime" min="08:00:00" max="21:00:00" value="">
 </form>
 
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
@@ -92,7 +92,7 @@ echo "</td></tr></table>";
 <br/><input type="submit" value="Change Date">
 </form>
 
-<div style='overflow:scroll; height:400px;' onmousedown="selectStart(event)">
+<div style='overflow:scroll; height:400px;' onmousedown="selectStart(event)" onmouseup="selectEnd(event)">
 <table id="TEST"  class='centered' height='0' border='0' padding='0'>
 		<tr>
 			<?php 

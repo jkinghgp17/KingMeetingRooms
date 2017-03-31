@@ -7,7 +7,6 @@ var starttime;
 var endtime;
 var mainRoom;
 var number;
-var date;
 
 function selectStart(event) {
 	var target;
@@ -51,5 +50,5 @@ function selectEnd(event) {
 			date = document.getElementById("dateSelector").value;
 		}
 	}
-	alert("The end time is " + endtime + " the date is " + date + ".");
+	alert("The end time is " + endtime + ".");
 }
