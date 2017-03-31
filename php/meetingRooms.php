@@ -53,6 +53,15 @@ echo "</td></tr></table>";
 
 </script>
 
+<!-- Hidden formed used by table -->
+<form action="meetingRoomsSubmit.php" method="POST">
+	<input type="hidden" name="number" value=-1>
+	<input type="hidden" name="room" value="">
+	<input type="hidden" name="date" value="">
+	<input type="time" name="starttime" min="07:30:00" max="20:30:00" value="">
+	<input type="time" name="endtime" min="08:00:00" max="21:00:00" value="">
+</form>
+
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
 	Select Room <br/>
 	<select name="room">
@@ -156,7 +165,7 @@ echo "</td></tr></table>";
 							}
 						}
 					}
-					echo "<td ' id=" . $time . " class=" . $class . ">" . $str . "</td>";
+					echo "<td ' id=" . $time . "." . $rooms[$col] . " class=" . $class . ">" . $str . "</td>";
 				}
 				$min++;
 				if ($min >= 60) {
