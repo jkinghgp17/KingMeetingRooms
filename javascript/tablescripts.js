@@ -9,6 +9,10 @@ var mainRoom;
 var number;
 
 function selectStart(event) {
+	if (starttime) {
+		selectEnd(event);
+		return;
+	}
 	var target;
 	if (!event) {
 		event = window.event;
@@ -26,7 +30,8 @@ function selectStart(event) {
 		starttime = time;
 		mainRoom = room;
 	}
-	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
+	document.getElementById(id).innerHTML = "start";
+ 	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
 
@@ -45,10 +50,12 @@ function selectEnd(event) {
 	if (i != -1) {
 		var time = id.substr(0, i);
 		var room = id.substr(i + 1);
-		if (mainRoom == room && time > starttime) {
+		if (mainRoom == room) {
 			endtime = time;
-			date = document.getElementById("dateSelector").value;
 		}
 	}
-	alert("The end time is " + endtime + ".");
+	
+	document.getElementById(id).innerHTML = "end";
+	var localNumber = parseInt(prompt("Please enter number of people", 0), 10);
+	alert("The end time is " + endtime + "the number is " + localNumber +   ".");
 }
