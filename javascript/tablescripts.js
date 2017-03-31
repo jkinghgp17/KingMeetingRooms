@@ -27,6 +27,7 @@ function selectStart(event) {
 		starttime = time;
 		mainRoom = room;
 	}
+	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
 
@@ -50,4 +51,5 @@ function selectEnd(event) {
 			date = document.getElementById("dateSelector").value;
 		}
 	}
+	alert("The end time is " + endtime + " the date is " + date + ".");
 }
