@@ -82,7 +82,7 @@ echo "</td></tr></table>";
 </form>
 
 <div style='overflow:scroll; height:400px;' onclick="selectStart(event)">
-<table class='centered' height='0' border='0' padding='0'>
+<table id="TEST"  class='centered' height='0' border='0' padding='0'>
 		<tr>
 			<?php 
 	echo "<th>Times</th>";
