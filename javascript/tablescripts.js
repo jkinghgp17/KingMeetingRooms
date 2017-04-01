@@ -9,6 +9,12 @@ var mainRoom;
 var number;
 
 function selectStart(event) {
+	if (endtime) {
+		starttime = null;
+		endtime = null;
+		mainRoom = null;
+		number = null;
+	}
 	if (starttime) {
 		selectEnd(event);
 		return;
@@ -30,8 +36,32 @@ function selectStart(event) {
 		starttime = time;
 		mainRoom = room;
 	}
-	document.getElementById(id).innerHTML = "start";
+	document.getElementById(id).className = "selected";
  	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
+}
+
+/*
+ * Color all the blocks in the table that are between the start and end
+ */
+function colorBetweenSelect() {
+	var f_hour, f_min, e_hour, e_min;
+	var i = starttime.indexOf(":");
+ 	f_hour = starttime.substr(0, i);
+	f_min = starttime.substr(i + 1, i + 3);
+	i = endtime.indexOf(":");
+ 	e_hour = starttime.substr(0, i);
+	e_min = starttime.substr(i + 1, i + 3);
+	var time = f_hour + ":" + f_min + ":00";
+	var hour = parseInt(f_hour);
+	var min = parseInt(f_min);
+	while (endtime > time) {
+		
+		if ((++m) > 59) {
+			hour++;
+			min = 0;
+		}
+
+	}
 }
 
 function selectEnd(event) {
@@ -54,7 +84,7 @@ function selectEnd(event) {
 		}
 	}
 	
-	document.getElementById(id).innerHTML = "end";
+	document.getElementById(id).className = "selected";
 	var localNumber = parseInt(prompt("Please enter number of people", 0), 10);
 	alert("The end time is " + endtime + "the number is " + localNumber +   ".");
 }
