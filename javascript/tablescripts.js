@@ -34,7 +34,6 @@ function selectStart(event) {
  	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
-
 function selectEnd(event) {
 	var target;
 	if (!event) {

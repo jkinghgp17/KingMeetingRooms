@@ -55,13 +55,14 @@ echo "</td></tr></table>";
 
 <!-- Hidden formed used by table -->
 <form action="meetingRoomsSubmit.php" method="POST">
-	<input type="hidden" name="number" value=-1>
-	<input type="hidden" name="room" value="">
-	<input type="hidden" name="date" value=<?php $date ?>>
-	<input type="hidden" name="starttime" min="07:30:00" max="20:30:00" value="">
-	<input type="hidden" name="endtime" min="08:00:00" max="21:00:00" value="">
+	<input type="hidden" name="number" value=-1 id="HIDDEN_NUMBER">
+	<input type="hidden" name="room" value="" id="HIDDEN_ROOM">
+	<input type="hidden" name="date" value=<?php $date ?> id="HIDDEN_DATE">
+	<input type="hidden" name="starttime" min="07:30:00" max="20:30:00" value="" id="HIDDEN_START">
+	<input type="hidden" name="endtime" min="08:00:00" max="21:00:00" value="" id="HIDDEN_END">
 </form>
 
+<!--
 <form action="meetingRoomsSubmit.php" method="POST" align='center'>
 	Select Room <br/>
 	<select name="room">
@@ -85,6 +86,7 @@ echo "</td></tr></table>";
 	<input type="number" name="number" min="1" max="999"> <br/> 
 	<input type="submit" value="Submit">
 </form>
+-->
 
 <!-- This form allows user to change the current date being shown in the table -->
 <form action="meetingRooms.php" method="GET" align='center'>
@@ -92,7 +94,7 @@ echo "</td></tr></table>";
 <br/><input type="submit" value="Change Date">
 </form>
 
-<div style='overflow:scroll; height:400px;' onmousedown="selectStart(event)">
+<div style='overflow:scroll; <!-- height:400px; -->' onmousedown="selectStart(event)">
 <table id="TEST"  class='centered' height='0' border='0' padding='0'>
 		<tr>
 			<?php 
