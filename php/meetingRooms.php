@@ -54,12 +54,13 @@ echo "</td></tr></table>";
 </script>
 
 <!-- Hidden formed used by table -->
-<form action="meetingRoomsSubmit.php" method="POST">
+<form action="meetingRoomsSubmit.php" id="HIDDEN_FORM" method="POST">
 	<input type="hidden" name="number" value=-1 id="HIDDEN_NUMBER">
 	<input type="hidden" name="room" value="" id="HIDDEN_ROOM">
 	<input type="hidden" name="date" value=<?php $date ?> id="HIDDEN_DATE">
 	<input type="hidden" name="starttime" min="07:30:00" max="20:30:00" value="" id="HIDDEN_START">
 	<input type="hidden" name="endtime" min="08:00:00" max="21:00:00" value="" id="HIDDEN_END">
+	<input type="submit" style="visibility: hidden;">
 </form>
 
 <!--

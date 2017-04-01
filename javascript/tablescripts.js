@@ -37,33 +37,14 @@ function selectStart(event) {
 		mainRoom = room;
 	}
 	document.getElementById(id).className = "selected";
- 	alert("The start time is" + starttime + " the room is " + mainRoom + ".");
+ 	//alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
 /*
- * Color all the blocks in the table that are between the start and end
+ * Is called by selectStart after the user has select a start time
+ * launches propmt to ask user for number
+ * puts data into form and submits
  */
-function colorBetweenSelect() {
-	var f_hour, f_min, e_hour, e_min;
-	var i = starttime.indexOf(":");
- 	f_hour = starttime.substr(0, i);
-	f_min = starttime.substr(i + 1, i + 3);
-	i = endtime.indexOf(":");
- 	e_hour = starttime.substr(0, i);
-	e_min = starttime.substr(i + 1, i + 3);
-	var time = f_hour + ":" + f_min + ":00";
-	var hour = parseInt(f_hour);
-	var min = parseInt(f_min);
-	while (endtime > time) {
-		
-		if ((++m) > 59) {
-			hour++;
-			min = 0;
-		}
-
-	}
-}
-
 function selectEnd(event) {
 	var target;
 	if (!event) {
@@ -87,4 +68,16 @@ function selectEnd(event) {
 	document.getElementById(id).className = "selected";
 	var localNumber = parseInt(prompt("Please enter number of people", 0), 10);
 	alert("The end time is " + endtime + "the number is " + localNumber +   ".");
+	addToForm();
+}
+
+function addToForm() {
+	//if (endtime && startime && room && number) {
+		document.getElementById("HIDDEN_ROOM").value = room;
+		document.getElementById("HIDDEN_NUMBER").value = number;
+		document.getElementById("HIDDEN_START").value = starttime;
+		document.getElementById("HIDDEN_END").value = endtime;
+	//}
+	var form = document.getElementById("HIDDEN_FORM");
+	form.submit();
 }
