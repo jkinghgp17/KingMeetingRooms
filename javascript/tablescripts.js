@@ -40,6 +40,10 @@ function selectStart(event) {
  	//alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
+/*
+ * Currently unused method that may in the future be used to call other methods
+ * to avoid exceptions
+ */
 /*function select(event) {
 	try {
 		selectStart(event);

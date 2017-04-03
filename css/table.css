@@ -5,3 +5,7 @@
 .selected {
 	background-color: PINK;
 }
+
+.meetingRoomTable {
+	border: 2px solid black;
+}

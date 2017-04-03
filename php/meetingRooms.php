@@ -99,7 +99,7 @@ echo "</td></tr></table>";
 </form>
 
 <div style='overflow:scroll; <!-- height:400px; -->' onmousedown="selectStart(event)">
-<table id="TEST"  class='centered' height='0' border='0' padding='0'>
+<table id="TEST"  class='centered meetingRoomTable' height='0' border='0' padding='0'>
 		<tr>
 			<?php 
 	echo "<th>Times</th>";
