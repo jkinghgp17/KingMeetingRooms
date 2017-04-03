@@ -40,13 +40,13 @@ function selectStart(event) {
  	//alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
-function select(event) {
+/*function select(event) {
 	try {
 		selectStart(event);
 	} catch(e) {
 		alert(e);
 	}
-}
+}*/
 
 /*
  * Is called by selectStart after the user has select a start time
@@ -76,6 +76,7 @@ function selectEnd(event) {
 	document.getElementById(id).className = "selected";
 	var localNumber = parseInt(prompt("Please enter number of people", 0), 10);
 	alert("The end time is " + endtime + " the number is " + localNumber +   ".");
+	number = localNumber;
 	addToForm();
 }
 
