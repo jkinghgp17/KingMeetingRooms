@@ -40,6 +40,14 @@ function selectStart(event) {
  	//alert("The start time is" + starttime + " the room is " + mainRoom + ".");
 }
 
+function select(event) {
+	try {
+		selectStart(event);
+	} catch(e) {
+		alert(e);
+	}
+}
+
 /*
  * Is called by selectStart after the user has select a start time
  * launches propmt to ask user for number
@@ -67,17 +75,17 @@ function selectEnd(event) {
 	
 	document.getElementById(id).className = "selected";
 	var localNumber = parseInt(prompt("Please enter number of people", 0), 10);
-	alert("The end time is " + endtime + "the number is " + localNumber +   ".");
+	alert("The end time is " + endtime + " the number is " + localNumber +   ".");
 	addToForm();
 }
 
 function addToForm() {
 	//if (endtime && startime && room && number) {
-		document.getElementById("HIDDEN_ROOM").value = room;
+		document.getElementById("HIDDEN_ROOM").value = mainRoom;
 		document.getElementById("HIDDEN_NUMBER").value = number;
 		document.getElementById("HIDDEN_START").value = starttime;
 		document.getElementById("HIDDEN_END").value = endtime;
 	//}
-	var form = document.getElementById("HIDDEN_FORM");
-	form.submit();
+	var frm = document.getElementById("HIDDEN_FORM");
+	frm.submit();
 }
