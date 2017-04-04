@@ -120,6 +120,11 @@ echo "</td></tr></table>";
 			?>
 		</tr>
 	<?php
+			define("MAX_HOURS", 14);
+			define("MIN_INT", 15);
+			define("START_HOUR", 7);
+			define("START_MIN", 30);
+
 			$query = $db->prepare('SELECT * FROM meetingroom WHERE date=:date');
 			$query->bindValue(':date', $date);
 			$query->execute();
@@ -129,9 +134,9 @@ echo "</td></tr></table>";
 			 * Sets up table that will be drawn by javascript code at 
 			 * a later point
 			 */ 
-			$hour = 7;
-			$min = 30;
-			for($row = 0; $row < 14 * 60; $row++) {
+			$hour = START_HOUR;
+			$min = START_MIN;
+			for($row = 0; $row < MAX_HOURS * (60 / MIN_INT); $row++) {
 				echo "<tr>";
 				// Sets the $time string 
 				if ($min == 0) {
@@ -167,13 +172,13 @@ echo "</td></tr></table>";
 								$class="timetaken";
 							// A form is added to the start of every time group to allow for editing
 							if ($time == $r['starttime']) {
-								$str = $r['teacher'] . " " . $r['number'] . " " . "<br/><form action=meetingRooms.php method=POST><input type=hidden name=room value=" . $rooms[$col] . "><input type=hidden name=date value=" . $date . "><input type=hidden name=time value=" . $time . "><input type=number name=number min=0 max=999><input type=submit></form>";
+								$str = $r['teacher'] . " " . $r['number'] . " " . "<br/><form action=meetingRooms.php method=POST><input type=hidden name=room value=" . $rooms[$col] . "><input type=hidden name=date value=" . $date . "><input type=hidden name=time value=" . $time . "><input type=number name=number min=0 max=999><input type=submit></form><br/><form action=meetingRoomEdit.php method=POST><input type=submit value=edit></form>";
 							}
 						}
 					}
 					echo "<td ' id=" . $time . "." . $rooms[$col] . " class=" . $class . ">" . $str . "</td>";
 				}
-				$min++;
+				$min += MIN_INT;
 				if ($min >= 60) {
 					$hour++;
 					$min = 0;
