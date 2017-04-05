@@ -149,7 +149,7 @@ echo "</td></tr></table>";
 				for ($col = 0; $col < 9; $col++) {
 					
 					$time = "00:00:00";
-					
+
 					if ($hour < 10) {
 						if ($min < 10) {
 							$time = "0" . $hour . ":" . "0" . $min . ":00";
@@ -164,6 +164,13 @@ echo "</td></tr></table>";
 						}
 					}
 					
+					$minTime = date('h:i:s', strtotime($time) - (MIN_INT * 60));
+					$maxTime = date('h:i:s', strtotime($time) + (MIN_INT * 60));
+					
+					if ($time == "07:30:00") {
+						echo $time . " " . $minTime . " " . $maxTime;
+					}
+					
 					$class ="default";
 					$str = "";
 					foreach ($rows as $r) {
@@ -171,7 +178,7 @@ echo "</td></tr></table>";
 							if ($time >= $r['starttime'] && $time <= $r['endtime'])
 								$class="timetaken";
 							// A form is added to the start of every time group to allow for editing
-							if ($time == $r['starttime']) {
+							if ($time < $r['starttime'] && $maxTime > $r['starttime'] || ($minTime < $r['starttime'] && $time > $r['starttime'])) {
 								// This line is a bit long (good luck if you are on cli lol)
 								$str = $r['teacher'] . " " . $r['number'] . " " . "<br/><form action=meetingRooms.php method=POST><input type=hidden name=room value=" . $rooms[$col] . "><input type=hidden name=date value=" . $date . "><input type=hidden name=time value=" . $time . "><input type=number name=number min=0 max=999><input type=submit></form><br/>
 								<form action=meetingRoomEdit.php method=POST><input type=hidden name=roomnumber value=" . $col . "><input type=hidden name=id value=" . $r['id'] . "><input type=hidden name=starttime value=" . $r['starttime'] . "><input type=hidden name=endtime value=" . $r['endtime'] . "><input type=hidden name=date value=" . $r['date'] . "><input type=hidden name=teacher value=" . $r['teacher'] . "><input type=hidden name=number value=" . $r['number'] . "><input type=hidden name=room value=" . $r['room'] . "><input type=submit value=edit></form>";
